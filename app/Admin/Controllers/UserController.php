@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Admin\Controllers;
+
+use App\Admin\Extensions\Tools\ImportButton;
+use App\Admin\Import\UsersImport;
+use App\User;
+use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Form;
+use Encore\Admin\Grid;
+use Encore\Admin\Layout\Content;
+use Encore\Admin\Show;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+
+class UserController extends AdminController
+{
+    /**
+     * Title for current resource.
+     *
+     * @var string
+     */
+    protected $title = 'User';
+
+    /**
+     * Make a grid builder.
+     *
+     * @return Grid
+     */
+    protected function grid()
+    {
+        $grid = new Grid(new User());
+
+        $grid->column('id', __('Id'));
+        $grid->column('code')->display(function () {
+            return "NT".str_pad($this->id, 3, '0', STR_PAD_LEFT);
+        });
+        $grid->column('name', __('Name'));
+        $grid->column('email', __('Email'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
+
+        $grid->tools(function ($tools) {
+            $tools->append(new ImportButton());
+        });
+
+        return $grid;
+    }
+
+    /**
+     * Make a show builder.
+     *
+     * @param mixed $id
+     * @return Show
+     */
+    protected function detail($id)
+    {
+        $show = new Show(User::findOrFail($id));
+
+        $show->field('id', __('Id'));
+        $show->field('name', __('Name'));
+        $show->field('email', __('Email'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
+
+        return $show;
+    }
+
+    /**
+     * Make a form builder.
+     *
+     * @return Form
+     */
+    protected function form()
+    {
+        $form = new Form(new User());
+
+        $form->text('name', __('Name'));
+        $form->email('email', __('Email'));
+
+        return $form;
+    }
+
+    protected function import(Content $content, Request $request)
+    {
+        $file = $request->file('file');
+
+        $import = Excel::import(new UsersImport(), $file);
+
+        return redirect('admin/users');
+    }
+}
