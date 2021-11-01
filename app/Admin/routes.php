@@ -12,6 +12,9 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    $router->resource('users', UserController::class);
-    $router->post('users/csv/import', 'UserController@import'); // Add this line
+    $router->resource('mail-groups', MailGroupController::class);
+    $router->resource('mail-lists', MailListController::class);
+
+    $router->post('mail-lists/import', 'MailListController@import'); // Import
+    $router->get('/mail-group/{group}/send-mail', 'MailGroupController@sendMail')->name('mail.group.send');
 });

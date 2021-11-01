@@ -37,7 +37,7 @@ $('#confirm').on('click', function() {
 
     $.ajax({
         method: 'POST',
-        url: '/admin/users/csv/import',
+        url: '/mail-lists/import',
         data: formData,
         processData: false,
         contentType: false,

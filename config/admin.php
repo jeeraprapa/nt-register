@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'NT Register',
+    'name' => 'NT Webinar',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => 'NT Register',
+    'logo' => 'NT Webinar',
 
     /*
     |--------------------------------------------------------------------------
