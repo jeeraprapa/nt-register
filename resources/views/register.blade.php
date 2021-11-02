@@ -89,14 +89,17 @@
         .error {
             color: red;
         }
+        label {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-<div id="wrapper" class="flex-center position-ref full-height">
+<div id="wrapper" class="flex-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-7 text-center">
-                <img src="{{ asset('images/logo4.png') }}" width="639"/>
+            <div class="col-md-7 mt-4 mb-4 text-center">
+                <img src="{{ asset('images/logo2.png') }}" width="288"/>
             </div>
             <div class="col-md-5">
                 <div class="row">
@@ -115,9 +118,9 @@
                                 <div class="form-group col-md-4">
                                     <select name="title" class="form-control">
                                         <option value="">-- คำนำหน้า --</option>
-                                        <option value="นาย">นาย</option>
-                                        <option value="นาง">นาง</option>
-                                        <option value="นางสาว">นางสาว</option>
+                                        <option value="นาย" {{ (old('title') == 'นาย') ? 'selected':'' }}>นาย</option>
+                                        <option value="นาง" {{ (old('title') == 'นาง') ? 'selected':'' }}>นาง</option>
+                                        <option value="นางสาว" {{ (old('title') == 'นางสาว') ? 'selected':'' }}>นางสาว</option>
                                     </select>
                                     @if($errors->has('title'))
                                         <span class="error">{{ $errors->first('title') }}</span>
@@ -125,14 +128,14 @@
                                 </div>
                                 <div class="form-group col-md-4 {{ $errors->has('first_name')?'error':'' }}">
                                     <input type="text" class="form-control"
-                                           name="first_name" placeholder="ชื่อ"/>
+                                           name="first_name" placeholder="ชื่อ" value="{{ old('first_name') }}"/>
                                     @if($errors->has('first_name'))
                                         <span class="error">{{ $errors->first('first_name') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group col-md-4 {{ $errors->has('last_name')?'error':'' }}">
                                     <input type="text" class="form-control"
-                                           name="last_name" placeholder="นามสกุล"/>
+                                           name="last_name" placeholder="นามสกุล" value="{{ old('last_name') }}" />
                                     @if($errors->has('last_name'))
                                         <span class="error">{{ $errors->first('last_name') }}</span>
                                     @endif
@@ -154,21 +157,24 @@
                             </div>
                             <div class="form-group {{ $errors->has('mobile_phone')?'error':'' }}">
                                 <label>เบอร์โทรศัพท์มือถือ *</label>
-                                <input type="number" class="form-control" name="mobile_phone" placeholder="เบอร์โทรศัพท์มือถือ">
+                                <input type="number" class="form-control" name="mobile_phone" value="{{ old('mobile_phone') }}"  placeholder="เบอร์โทรศัพท์มือถือ">
                                 @if($errors->has('mobile_phone'))
                                     <span class="error">{{ $errors->first('mobile_phone') }}</span>
                                 @endif
                             </div>
                             <div class="form-group  {{ $errors->has('email')?'error':'' }}">
                                 <label>อีเมล *</label>
-                                <input type="email" class="form-control" name="email" placeholder="อีเมล">
+                                <input type="email" class="form-control" name="email" placeholder="อีเมล" value="{{ old('email') }}">
                                 @if($errors->has('email'))
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('address')?'error':'' }}">
                                 <label>ที่อยู่ *</label>
-                                <textarea name="address" class="form-control" rows="3" cols="2" placeholder="ที่อยู่"></textarea>
+                                <textarea name="address" class="form-control" rows="3" cols="2" placeholder="ที่อยู่">{{ old('address') }}</textarea>
+                                @if($errors->has('address'))
+                                    <span class="error">{{ $errors->first('address') }}</span>
+                                @endif
                             </div>
                             <div class="form-group mb-0"><label>ลงทะเบียนรับเสื้อที่ระลึก <small>(กรุณาระบุไซส์)</small></label></div>
                             <div class="form-row">
