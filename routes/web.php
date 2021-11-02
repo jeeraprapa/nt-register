@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group([
+	'middleware' => ['web']
+],
+	function () {
+
+		Route::get('/', 'RegisterController@register')
+		     ->name('register');
+
+		Route::post('/store', 'RegisterController@store')
+		     ->name('store');
+	}
+);
