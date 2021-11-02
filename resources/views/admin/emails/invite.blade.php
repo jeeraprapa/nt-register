@@ -8,7 +8,11 @@
                 <table width="650" border="0" cellspacing="0" cellpadding="0">
                     <tbody>
                         <tr>
-                            <td><img src="{{asset('images/mail-invite.jpg')}}" width="650" /></td>
+                            <td>
+                                <a href="{{route('register')}}">
+                                    <img src="{{asset('images/mail-invite.jpg')}}" width="650" />
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
