@@ -96,7 +96,7 @@
 </head>
 <body>
 <div id="wrapper" class="flex-center">
-    <div class="container">
+    <div class="container p-4">
         <div class="row">
             <div class="col-md-7 mt-4 mb-4 text-center">
                 <img src="{{ asset('images/logo2.png') }}" width="288"/>
