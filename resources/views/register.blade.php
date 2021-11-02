@@ -86,15 +86,17 @@
         #wrapper {
             overflow: hidden;
         }
-
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
-<div id="wrapper">
+<div id="wrapper" class="flex-center position-ref full-height">
     <div class="container">
         <div class="row">
-            <div class="col-md-7" style="background: pink;">
-
+            <div class="col-md-7 text-center">
+                <img src="{{ asset('images/logo4.png') }}" width="639"/>
             </div>
             <div class="col-md-5">
                 <div class="row">
@@ -108,23 +110,32 @@
                                 <label>หน่วยงาน</label>
                                 <input type="text" class="form-control" name="department" placeholder="หน่วยงาน">
                             </div>
-                            <div class="form-group"><label>ชื่อผู้เข้าร่วมสัมมนา *</label></div>
+                            <div class="form-group mb-0 {{ $errors->has('title') || $errors->has('first_name') || $errors->has('last_name')?'error':'' }}"><label>ชื่อผู้เข้าร่วมสัมมนา *</label></div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <select name="title" class="form-control" required>
+                                    <select name="title" class="form-control">
                                         <option value="">-- คำนำหน้า --</option>
                                         <option value="นาย">นาย</option>
                                         <option value="นาง">นาง</option>
                                         <option value="นางสาว">นางสาว</option>
                                     </select>
+                                    @if($errors->has('title'))
+                                        <span class="error">{{ $errors->first('title') }}</span>
+                                    @endif
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 {{ $errors->has('first_name')?'error':'' }}">
                                     <input type="text" class="form-control"
-                                           name="first_name" required placeholder="ชื่อ"/>
+                                           name="first_name" placeholder="ชื่อ"/>
+                                    @if($errors->has('first_name'))
+                                        <span class="error">{{ $errors->first('first_name') }}</span>
+                                    @endif
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 {{ $errors->has('last_name')?'error':'' }}">
                                     <input type="text" class="form-control"
-                                           name="last_name" required placeholder="นามสกุล"/>
+                                           name="last_name" placeholder="นามสกุล"/>
+                                    @if($errors->has('last_name'))
+                                        <span class="error">{{ $errors->first('last_name') }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-row">
@@ -141,19 +152,25 @@
                                 <label>เบอร์โทรศัพท์หน่วยงาน</label>
                                 <input type="number" class="form-control" name="telephone" placeholder="เบอร์โทรศัพท์หน่วยงาน">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('mobile_phone')?'error':'' }}">
                                 <label>เบอร์โทรศัพท์มือถือ *</label>
-                                <input type="number" class="form-control" name="mobile_phone" required placeholder="เบอร์โทรศัพท์มือถือ">
+                                <input type="number" class="form-control" name="mobile_phone" placeholder="เบอร์โทรศัพท์มือถือ">
+                                @if($errors->has('mobile_phone'))
+                                    <span class="error">{{ $errors->first('mobile_phone') }}</span>
+                                @endif
                             </div>
-                            <div class="form-group">
+                            <div class="form-group  {{ $errors->has('email')?'error':'' }}">
                                 <label>อีเมล *</label>
-                                <input type="email" class="form-control" name="email" required placeholder="อีเมล">
+                                <input type="email" class="form-control" name="email" placeholder="อีเมล">
+                                @if($errors->has('email'))
+                                    <span class="error">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>ที่อยู่ *</label>
-                                <textarea name="address" class="form-control" rows="3" cols="2" required placeholder="ที่อยู่"></textarea>
+                                <textarea name="address" class="form-control" rows="3" cols="2" placeholder="ที่อยู่"></textarea>
                             </div>
-                            <div class="form-group"><label>ลงทะเบียนรับเสื้อที่ระลึก <small>(กรุณาระบุไซส์)</small></label></div>
+                            <div class="form-group mb-0"><label>ลงทะเบียนรับเสื้อที่ระลึก <small>(กรุณาระบุไซส์)</small></label></div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <div class="form-check">
