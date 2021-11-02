@@ -14,7 +14,7 @@ class UpdateRegister extends
 			'first_name' => 'required',
 			'last_name' => 'required',
 			'email' => 'required|max:255|unique:register,email,NULL,id,deleted_at,NULL',
-			'mobile_phone' => 'required|numeric',
+			'mobile_phone' => 'required|digits:10',
 			'address' => 'required'
 		];
 	}
@@ -29,7 +29,7 @@ class UpdateRegister extends
 			'email.unique' => 'อีเมลนี้มีผู้ใช้แล้ว กรุณาระบุอีเมลใหม่',
 			'email.max' => 'กรุณาระบุอีเมล ไม่เกิน 255 ตัวอักษร',
 			'mobile_phone.required' => 'กรุณาระบุเบอร์โทรศัพท์มือถือ',
-			'mobile_phone.numeric' => 'กรุณาระบุเบอร์โทรศัพท์มือถือ เป็นตัวเลข',
+			'mobile_phone.digits' => 'กรุณาระบุเบอร์โทรศัพท์มือถือให้ถูกต้อง',
 			'address.required' => 'กรุณาระบุที่อยู่'
 		];
 	}
