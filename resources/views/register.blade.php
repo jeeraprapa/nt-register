@@ -32,10 +32,10 @@
 <div id="wrapper" class="flex-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-7 mb-4 text-center">
-                <img src="{{ asset('images/register.png') }}" width="100%"/>
+            <div class="col-md-7 text-center col-right">
+                <img src="{{ asset('images/register.png') }}" />
             </div>
-            <div class="col-md-5 pl-4">
+            <div class="col-md-5 col-left">
                 <div class="row">
                     <div class="col-md-12 pt-5 text-center">
                         <img src="{{ asset('images/logo3.png') }}" width="55%"/>
