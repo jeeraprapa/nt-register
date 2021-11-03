@@ -37,7 +37,7 @@ $('#confirm').on('click', function() {
 
     $.ajax({
         method: 'POST',
-        url: '/mail-lists/import',
+        url: '/admin/mail-lists/import',
         data: formData,
         processData: false,
         contentType: false,
