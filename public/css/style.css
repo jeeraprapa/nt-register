@@ -1,0 +1,102 @@
+html, body {
+    background-color: #fff;
+    color: #545859;
+    font-family: 'NT', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 0.65rem;
+}
+
+.btn {
+    color: #545859;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+
+.btn-warning {
+    background-color: #ffd101;
+    border-color: #ffd101;
+}
+
+#wrapper {
+    overflow: hidden;
+}
+
+.error {
+    color: red;
+}
+
+input.form-control, textarea.form-control {
+    border-bottom: 1px solid #999999;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    margin-top: 25px;
+    padding: 0px;
+}
+.input-icons i {
+    position: absolute;
+    color: #545859;
+}
+
+.input-icons {
+    width: 100%;
+}
+
+.icon {
+    padding-top: 10px;
+    min-width: 25px;
+}
+
+.input-field {
+    width: 100%;
+    text-indent: 25px;
+    text-align: left;
+}
+
+.radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+.radio-toolbar {
+
+}
+
+.radio-toolbar label {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #ffd101;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.radio-toolbar label:hover {
+    background-color: #ffd101;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: #ffd101;
+    border-color: #ffd101;
+}

@@ -7,19 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>NT</title>
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'NT', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
         @font-face {
             font-family: 'NT';
             font-style: normal;
@@ -33,199 +26,147 @@
             font-weight: bold;
             src: url("{{ asset('fonts/NTBold.ttf') }}") format('truetype');
         }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-        .form-group{
-            margin-bottom: 0.65rem;
-        }
-        .btn-primary {
-            background-color: purple;
-            border-color: purple;
-            border-radius: 25px;
-        }
-        #wrapper {
-            overflow: hidden;
-        }
-        .error {
-            color: red;
-        }
-        label {
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
 <div id="wrapper" class="flex-center">
-    <div class="container p-4">
+    <div class="container">
         <div class="row">
-            <div class="col-md-7 mt-4 mb-4 text-center">
-                <img src="{{ asset('images/logo2.png') }}" width="288"/>
+            <div class="col-md-7 mb-4 text-center">
+                <img src="{{ asset('images/register.png') }}" width="100%"/>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 pl-4">
                 <div class="row">
-                    <div class="col-md-12"><h1>ลงทะเบียน</h1></div>
+                    <div class="col-md-12 pt-5 text-center">
+                        <img src="{{ asset('images/logo3.png') }}" width="55%"/>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 pt-5">
                         <form method="post" action="{{ route('store') }}">
-                        @csrf
+                            @csrf
                             <div class="form-group">
-                                <label>หน่วยงาน</label>
-                                <input type="text" class="form-control" name="department" placeholder="หน่วยงาน">
+                                <input type="text" class="form-control" name="department"
+                                       placeholder="หน่วยงาน" value="{{ old('department') }}">
                             </div>
-                            <div class="form-group mb-0 {{ $errors->has('title') || $errors->has('first_name') || $errors->has('last_name')?'error':'' }}"><label>ชื่อผู้เข้าร่วมสัมมนา *</label></div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <select name="title" class="form-control">
-                                        <option value="">-- คำนำหน้า --</option>
-                                        <option value="นาย" {{ (old('title') == 'นาย') ? 'selected':'' }}>นาย</option>
-                                        <option value="นาง" {{ (old('title') == 'นาง') ? 'selected':'' }}>นาง</option>
-                                        <option value="นางสาว" {{ (old('title') == 'นางสาว') ? 'selected':'' }}>นางสาว</option>
-                                    </select>
-                                    @if($errors->has('title'))
-                                        <span class="error">{{ $errors->first('title') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group col-md-4 {{ $errors->has('first_name')?'error':'' }}">
+                            <div class="form-group {{ $errors->has('title') }}">
+                                <input type="text" class="form-control" name="title"
+                                       placeholder="คำนำหน้า *" value="{{ old('title') }}">
+                                @if($errors->has('title'))
+                                    <span class="error">{{ $errors->first('title') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-row {{ $errors->has('first_name') || $errors->has('last_name')?'error':'' }}">
+                                <div class="form-group col-md-6 {{ $errors->has('first_name')?'error':'' }}">
                                     <input type="text" class="form-control"
-                                           name="first_name" placeholder="ชื่อ" value="{{ old('first_name') }}"/>
+                                           name="first_name" placeholder="ชื่อ *"
+                                           value="{{ old('first_name') }}"/>
                                     @if($errors->has('first_name'))
                                         <span class="error">{{ $errors->first('first_name') }}</span>
                                     @endif
                                 </div>
-                                <div class="form-group col-md-4 {{ $errors->has('last_name')?'error':'' }}">
+                                <div class="form-group col-md-6 {{ $errors->has('last_name')?'error':'' }}">
                                     <input type="text" class="form-control"
-                                           name="last_name" placeholder="นามสกุล" value="{{ old('last_name') }}" />
+                                           name="last_name" placeholder="นามสกุล *"
+                                           value="{{ old('last_name') }}"/>
                                     @if($errors->has('last_name'))
                                         <span class="error">{{ $errors->first('last_name') }}</span>
                                     @endif
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label>อายุ (ปี)</label>
-                                    <input type="number" class="form-control" name="age" placeholder="อายุ">
+                                <div class="form-group col-md-6">
+                                    <input type="number" class="form-control" name="age"
+                                           placeholder="อายุ" value="{{ old('age') }}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control"
+                                           name="position" placeholder="ตำแหน่ง"
+                                           value="{{ old('position') }}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>ตำแหน่ง</label>
-                                <input type="text" class="form-control" name="position" placeholder="ตำแหน่ง">
-                            </div>
-                            <div class="form-group">
-                                <label>เบอร์โทรศัพท์หน่วยงาน</label>
-                                <input type="number" class="form-control" name="telephone" placeholder="เบอร์โทรศัพท์หน่วยงาน">
+                                <div class="input-icons">
+                                    <i class="fas fa-phone-alt icon"></i>
+                                    <input type="number" class="form-control input-field"
+                                           name="telephone"
+                                           placeholder="เบอร์โทรศัพท์หน่วยงาน"
+                                           value="{{ old('telephone') }}">
+                                </div>
                             </div>
                             <div class="form-group {{ $errors->has('mobile_phone')?'error':'' }}">
-                                <label>เบอร์โทรศัพท์มือถือ *</label>
-                                <input type="number" class="form-control" name="mobile_phone" value="{{ old('mobile_phone') }}"  placeholder="เบอร์โทรศัพท์มือถือ">
+                                <div class="input-icons">
+                                    <i class="fas fa-phone-alt icon"></i>
+                                    <input type="number" class="form-control input-field"
+                                           name="mobile_phone"
+                                           value="{{ old('mobile_phone') }}"
+                                           placeholder="เบอร์โทรศัพท์มือถือ *">
+                                </div>
                                 @if($errors->has('mobile_phone'))
                                     <span class="error">{{ $errors->first('mobile_phone') }}</span>
                                 @endif
                             </div>
                             <div class="form-group  {{ $errors->has('email')?'error':'' }}">
-                                <label>อีเมล *</label>
-                                <input type="email" class="form-control" name="email" placeholder="อีเมล" value="{{ old('email') }}">
+                                <input type="email" class="form-control" name="email"
+                                       placeholder="E-mail *" value="{{ old('email') }}">
                                 @if($errors->has('email'))
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
                             <div class="form-group {{ $errors->has('address')?'error':'' }}">
-                                <label>ที่อยู่ *</label>
-                                <textarea name="address" class="form-control" rows="3" cols="2" placeholder="ที่อยู่">{{ old('address') }}</textarea>
+                                <input type="text" name="address" class="form-control"
+                                       placeholder="ที่อยู่ *" value="{{ old('address') }}">
                                 @if($errors->has('address'))
                                     <span class="error">{{ $errors->first('address') }}</span>
                                 @endif
                             </div>
-                            <div class="form-group mb-0"><label>ลงทะเบียนรับเสื้อที่ระลึก <small>(กรุณาระบุไซส์)</small></label></div>
+                            <div class="form-group font-weight-bold">
+                                ลงทะเบียนรับเสื้อที่ระลึก กรุณาระบุไซส์
+                            </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="size" id="size_s" value="S">
-                                        <label class="form-check-label" for="size_s">
-                                            S (รอบอก 36-38")
-                                        </label>
+                                <div class="form-group col-md-6">
+                                    <div class="radio-toolbar">
+                                        <input type="radio" id="size_s"
+                                               name="size" value="S" {{ old('size') == 'S' ? 'checked':'' }}>
+                                        <label for="size_s">S (รอบอก 36-38")</label>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="size" id="size_m" value="M">
-                                        <label class="form-check-label" for="size_m">
-                                            M (รอบอก 38-40")
-                                        </label>
+                                <div class="form-group col-md-6">
+                                    <div class="radio-toolbar">
+                                        <input type="radio" id="size_m"
+                                               name="size" value="M" {{ old('size') == 'M' ? 'checked':'' }}>
+                                        <label for="size_m">M (รอบอก 38-40")</label>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="size" id="size_l" value="L">
-                                        <label class="form-check-label" for="size_l">
-                                            L (รอบอก 40-42")
-                                        </label>
+                                <div class="form-group col-md-6">
+                                    <div class="radio-toolbar">
+                                        <input type="radio" id="size_l"
+                                               name="size" value="L" {{ old('size') == 'L' ? 'checked':'' }}>
+                                        <label for="size_l">L (รอบอก 40-42")</label>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="size" id="size_xl" value="XL">
-                                        <label class="form-check-label" for="size_xl">
-                                            XL (รอบอก 42-44")
-                                        </label>
+                                <div class="form-group col-md-6">
+                                    <div class="radio-toolbar">
+                                        <input type="radio" id="size_xl"
+                                               name="size" value="XL" {{ old('size') == 'XL' ? 'checked':'' }}>
+                                        <label for="size_xl">XL (รอบอก 42-44")</label>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="size" id="size_xxl" value="XXL">
-                                        <label class="form-check-label" for="size_xxl">
-                                            XXL (รอบอก 42-44")
-                                        </label>
+                                <div class="form-group col-md-6">
+                                    <div class="radio-toolbar">
+                                        <input type="radio" id="size_xxl"
+                                               name="size" value="XXL" {{ old('size') == 'XXL' ? 'checked':'' }}>
+                                        <label for="size_xxl">XXL (รอบอก 44-46")</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="accept">
-                                <label class="form-check-label" for="accept">ฉันยอมรับเงื่อนไข</label>
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-warning col-md-12">
+                                    ลงทะเบียน
+                                </button>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">ลงทะเบียน</button>
                         </form>
                     </div>
                 </div>

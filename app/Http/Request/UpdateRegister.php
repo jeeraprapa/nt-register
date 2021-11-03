@@ -22,7 +22,7 @@ class UpdateRegister extends
 	public function messages()
 	{
 		return [
-			'title.required' => 'กรุณเลือกคำนำหน้า',
+			'title.required' => 'กรุณาระบุคำนำหน้า',
 			'first_name.required' => 'กรุณาระบุชื่อ',
 			'last_name.required' => 'กรุณาระบุนามสกุล',
 			'email.required' => 'กรุณาระบุอีเมล',
