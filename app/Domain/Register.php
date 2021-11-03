@@ -21,7 +21,8 @@ class Register extends BaseModel
 		'mobile_phone',
 		'email',
 		'address',
-		'size'
+		'size',
+        'reminder'
 	];
 
 }

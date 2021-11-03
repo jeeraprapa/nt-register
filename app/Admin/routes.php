@@ -14,7 +14,9 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('mail-groups', MailGroupController::class);
     $router->resource('mail-lists', MailListController::class);
+    $router->resource('registers', RegisterController::class);
 
-    $router->post('mail-lists/import', 'MailListController@import'); // Import
+    $router->post('/mail-lists/import', 'MailListController@import');
     $router->get('/mail-group/{group}/send-mail', 'MailGroupController@sendMail')->name('mail.group.send');
+    $router->get('/send-reminder-mails', 'RegisterController@sendReminderMails')->name('mail.reminder.send');
 });

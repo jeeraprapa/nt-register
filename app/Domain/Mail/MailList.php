@@ -3,11 +3,13 @@
 namespace App\Domain\Mail;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
 class MailList extends Model
 {
     use Notifiable;
+    use SoftDeletes;
 
     protected $table = 'mail_list';
 
