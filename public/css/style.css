@@ -10,9 +10,6 @@ html, body {
     height: 100%;
     object-fit: cover;
 }
-.col-left {
-    padding-left: 1.5rem;
-}
 
 .flex-center {
     align-items: center;
@@ -114,8 +111,5 @@ input.form-control, textarea.form-control {
 @media only screen and (max-width: 768px) {
     .col-right {
         display: none;
-    }
-    .col-left {
-        padding-left: 15px;
     }
 }
