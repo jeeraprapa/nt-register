@@ -7,11 +7,11 @@
 <!-- Save for Web Slices (ticket-1-01.jpg) -->
 <table id="Table_01" width="650" height="903" border="0" cellpadding="0" cellspacing="0" align="center" style="font-size: 14px;">
     <tr>
-        <td colspan="5">
+        <td colspan="5" width="650" style="background-color: #FFD101;">
             <img src="{{ asset('images/confirm/index_01.jpg') }}" width="650" height="411" alt=""></td>
     </tr>
     <tr>
-        <td>
+        <td width="32" style="background-color: #FFD101;">
             <img src="{{ asset('images/confirm/index_02.jpg') }}" width="32" height="15" alt=""></td>
         <td>
             <img src="{{ asset('images/confirm/index_03.jpg') }}" width="28" height="15" alt=""></td>
@@ -19,7 +19,7 @@
             <img src="{{ asset('images/confirm/index_04.jpg') }}" width="520" height="15" alt=""></td>
         <td>
             <img src="{{ asset('images/confirm/index_05.jpg') }}" width="34" height="15" alt=""></td>
-        <td>
+        <td width="36" style="background-color: #FFD101;">
             <img src="{{ asset('images/confirm/index_06.jpg') }}" width="36" height="15" alt=""></td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@
             <img src="{{ asset('images/confirm/index_11.jpg') }}" width="36" height="16" alt=""></td>
     </tr>
     <tr>
-        <td>
+        <td width="32" style="background-color: #FFD101;">
             <img src="{{ asset('images/confirm/index_12.jpg') }}" width="32" height="48" alt=""></td>
         <td>
             <img src="{{ asset('images/confirm/index_13.jpg') }}" width="28" height="48" alt=""></td>
@@ -45,7 +45,7 @@
             <img src="{{ asset('images/confirm/index_14.jpg') }}" width="520" height="48" alt=""></td>
         <td>
             <img src="{{ asset('images/confirm/index_15.jpg') }}" width="34" height="48" alt=""></td>
-        <td>
+        <td width="36" style="background-color: #FFD101;">
             <img src="{{ asset('images/confirm/index_16.jpg') }}" width="36" height="48" alt=""></td>
     </tr>
     <tr>
