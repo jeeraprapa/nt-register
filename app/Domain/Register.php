@@ -27,4 +27,13 @@ class Register extends BaseModel
         'reminder'
 	];
 
+	public function getFormattedIdAttribute()
+	{
+		return str_pad($this->id, 3, '0', STR_PAD_LEFT);
+	}
+
+	public function getFullNameAttribute()
+	{
+		return $this->title.' '.$this->first_name.' '.$this->last_name;
+	}
 }

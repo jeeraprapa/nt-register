@@ -27,15 +27,12 @@ html, body {
     text-transform: uppercase;
 }
 
-.form-group {
-    margin-bottom: 0.65rem;
-}
-
 .btn {
     color: #545859;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     border-radius: 0.5rem;
+    padding: 3px;
 }
 
 .btn-warning {
@@ -57,7 +54,7 @@ input.form-control, textarea.form-control {
     border-left: none;
     border-right: none;
     border-radius: 0px;
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 0px;
 }
 .input-icons i {
@@ -70,7 +67,7 @@ input.form-control, textarea.form-control {
 }
 
 .icon {
-    padding-top: 10px;
+    padding-top: 30px;
     min-width: 25px;
 }
 
@@ -84,9 +81,6 @@ input.form-control, textarea.form-control {
     opacity: 0;
     position: fixed;
     width: 0;
-}
-.radio-toolbar {
-
 }
 
 .radio-toolbar label {
@@ -107,6 +101,11 @@ input.form-control, textarea.form-control {
     border-color: #ffd101;
 }
 
+#thank-you img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 @media only screen and (max-width: 768px) {
     .col-right {
