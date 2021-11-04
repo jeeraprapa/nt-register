@@ -113,10 +113,11 @@
                                            value="{{ old('mobile_phone') }}"
                                            placeholder="เบอร์โทรศัพท์มือถือ *"
                                            maxlength="10">
+
+                                    @if($errors->has('mobile_phone'))
+                                        <span class="error">{{ $errors->first('mobile_phone') }}</span>
+                                    @endif
                                 </div>
-                                @if($errors->has('mobile_phone'))
-                                    <span class="error">{{ $errors->first('mobile_phone') }}</span>
-                                @endif
                             </div>
                             <div class="row form-group">
                                 <div class="col-md-12">
