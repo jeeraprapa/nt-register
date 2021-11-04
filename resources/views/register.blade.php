@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>NT</title>
+    <title>NT โทรคมนาคมแห่งชาติ</title>
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
