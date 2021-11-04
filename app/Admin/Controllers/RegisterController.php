@@ -40,6 +40,7 @@ class RegisterController extends AdminController
         $grid->column('email', __('Email'));
         $grid->column('address', __('Address'));
         $grid->column('size', __('Size'));
+        $grid->column('reminder', __('Reminder'));
 //        $grid->column('deleted_at', __('Deleted at'));
         $grid->column('created_at', __('Created at'));
 //        $grid->column('updated_at', __('Updated at'));
@@ -73,6 +74,7 @@ class RegisterController extends AdminController
         $show->field('email', __('Email'));
         $show->field('address', __('Address'));
         $show->field('size', __('Size'));
+        $show->field('reminder', __('Reminder'));
         $show->field('deleted_at', __('Deleted at'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
