@@ -10,8 +10,6 @@ class Register extends BaseModel
 
 	protected $table = 'register';
 
-	protected $casts = ['created_at'=>'dateTime'];
-
 	protected $fillable = [
 		'title',
 		'first_name',
