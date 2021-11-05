@@ -13,8 +13,8 @@ class ConfirmMail extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-	    $file = public_path("uploaded/attach/online-NT.pdf");
-        return (new MailMessage)->subject('บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)')
+	    $file = public_path("uploaded/attach/กำหนดการ.pdf");
+        return (new MailMessage)->subject('Confirmation Email From NT')
                                 ->attach($file)
                                 ->view('confirm-mail', ['data' => $notifiable]);
     }
