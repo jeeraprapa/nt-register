@@ -13,12 +13,10 @@ class ReminderMail extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        $file = public_path("uploaded/attach/online-NT.pdf");
-        $logo = public_path("images/logo3.png");
+        $file = public_path("uploaded/attach/กำหนดการ.pdf");
 
-        return (new MailMessage)->subject('แจ้งเตือนกำหนดการเข้าร่วมงานสัมนา 17 พฤศจิกายน 2564')
-                                ->greeting('เรียน ผู้สนใจเข้าร่วมงานสัมนา')
-                                ->line('เอกสารกำหนดการตามไฟล์แนบ')
+        return (new MailMessage)->subject('The Exclusive Webinar: “Recharge & Comeback Stronger” Reminder')
+                                ->view('admin.emails.reminder')
                                 ->attach($file);
     }
 
