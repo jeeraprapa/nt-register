@@ -10,7 +10,7 @@
 <p>
     <strong>Time :</strong>
     <br />
-    September 17,2021
+    November 17,2021
     <br />
     1.00-4.30 p.m.
 </p>
