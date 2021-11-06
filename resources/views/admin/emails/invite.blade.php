@@ -19,7 +19,7 @@
         <tr>
             <td>
                 <a href="{{route('register')}}">
-                    <img src="{{asset('images/ecard2-01.jpg')}}" width="650" />
+                    <img src="{{asset('images/ecard-01.jpg')}}" width="650" />
                 </a>
             </td>
         </tr>
