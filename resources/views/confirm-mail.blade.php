@@ -28,8 +28,8 @@
         <td>
             <img src="{{ asset('images/confirm/index_08.jpg') }}" width="28" height="16" alt=""></td>
         <td>
-            <div style="width: 48%; float:left;">ID No : {{ $data->formatted_id }}</div>
-            <div style="width: 50%; float:right;border-left: 1px solid #ccc;padding-left: 8px;">Name : {{ $data->full_name }}</div>
+            <div style="width: 48%; float:left; font-size: 15px;">ID No : 008</div>
+            <div style="width: 50%; float:right;border-left: 1px solid #ccc;padding-left: 8px;">Name : xxxxx xxxxxx</div>
         </td>
         <td>
             <img src="{{ asset('images/confirm/index_10.jpg') }}" width="34" height="16" alt=""></td>
@@ -53,7 +53,7 @@
             <img src="{{ asset('images/confirm/index_17.jpg') }}" width="32" height="103" alt=""></td>
         <td>
             <img src="{{ asset('images/confirm/index_18.jpg') }}" width="28" height="103" alt=""></td>
-        <td align="left">Join Zoom Meeting : <a href="https://zoom.us/j/92887006155?pwd=aWIzM1VJZi9MMHB2SFU1ZUtEeWdhUT09" target="_blank">https://zoom.us/j/92887006155?pwd=aWIzM1VJZi9MMHB2SFU1ZUtEeWdhUT09</a>
+        <td align="left" style="font-size: 15px;">Join Zoom Meeting : <a href="https://zoom.us/j/92887006155?pwd=aWIzM1VJZi9MMHB2SFU1ZUtEeWdhUT09" target="_blank">https://zoom.us/j/92887006155?pwd=aWIzM1VJZi9MMHB2SFU1ZUtEeWdhUT09</a>
             <br />
             Meeting ID : 928 8700 6155
             <br />

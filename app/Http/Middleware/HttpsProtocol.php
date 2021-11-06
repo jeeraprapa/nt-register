@@ -8,7 +8,7 @@ class HttpsProtocol
 {
     public function handle($request, Closure $next)
     {
-        if (!$request->secure()) {
+        if (!$request->secure()&& config('app.env') == 'production') {
             \Log::info('redirect-https');
             return redirect()->secure($request->getRequestUri());
         }

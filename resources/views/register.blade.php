@@ -49,8 +49,11 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control"
                                            name="department"
-                                           placeholder="หน่วยงาน"
+                                           placeholder="หน่วยงาน *"
                                            value="{{ old('department') }}">
+                                    @if($errors->has('department'))
+                                        <span class="error">{{ $errors->first('department') }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -99,10 +102,13 @@
                             <div class="row form-group">
                                 <div class="input-icons col-md-12">
                                     <i class="fas fa-phone-alt icon"></i>
-                                    <input type="number" class="form-control input-field"
+                                    <input type="text" class="form-control input-field"
                                            name="telephone"
-                                           placeholder="เบอร์โทรศัพท์หน่วยงาน"
-                                           value="{{ old('telephone') }}">
+                                           placeholder="เบอร์โทรศัพท์หน่วยงาน *"
+                                           value="{{ old('telephone') }}" maxlength="10">
+                                    @if($errors->has('telephone'))
+                                        <span class="error">{{ $errors->first('telephone') }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row form-group">
