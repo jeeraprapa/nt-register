@@ -9,6 +9,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\MessageBag;
 
 class MailGroupController extends AdminController
 {
@@ -32,8 +33,6 @@ class MailGroupController extends AdminController
         $grid->column('name', __('Name'));
         $grid->column('state', __('State'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
 
         $grid->actions(function ($actions) {
             $actions->disableDelete();
@@ -90,6 +89,10 @@ class MailGroupController extends AdminController
                 \Log::error($list,$e);
             }
         }
-        return redirect('admin/mail-groups');
+        $success = new MessageBag([
+            'title'   => 'Success',
+            'message' => 'Send mails is processing.',
+        ]);
+        return redirect('admin/mail-groups')->with(compact('success'));
     }
 }

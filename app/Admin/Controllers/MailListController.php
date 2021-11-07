@@ -2,8 +2,10 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Actions\SendMail;
 use App\Admin\Extensions\Tools\ImportButton;
 use App\Admin\Import\MailListImport;
+use App\Admin\Notifications\InviteMail;
 use App\Domain\Mail\MailGroup;
 use App\Domain\Mail\MailList;
 use Encore\Admin\Controllers\AdminController;
@@ -12,6 +14,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MailListController extends AdminController
@@ -41,11 +44,14 @@ class MailListController extends AdminController
         $grid->column('department', __('Department'));
         $grid->column('state', __('State'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
 
         $grid->tools(function ($tools) {
             $tools->append(new ImportButton());
+        });
+
+        $grid->actions(function ($actions) {
+            $actions->disableDelete();
+            $actions->add(new SendMail($actions->getKey()));
         });
 
         return $grid;
@@ -104,5 +110,28 @@ class MailListController extends AdminController
         $import = Excel::import(new MailListImport(), $file);
 
         return redirect('admin/mail-lists');
+    }
+
+    public function sendMail (MailList $list)
+    {
+        try {
+            $list->notify(new InviteMail());
+            $list->state = "Send";
+            $list->save();
+
+            $success = new MessageBag([
+                'title'   => 'Success',
+                'message' => 'Send mail successfully.',
+            ]);
+            return back()->with(compact('success'));
+        }catch (\Exception $e){
+            \Log::error($list,$e);
+            $error = new MessageBag([
+                'title'   => 'Error',
+                'message' => $e->getMessage(),
+            ]);
+            return back()->with(compact('error'));
+        }
+
     }
 }
