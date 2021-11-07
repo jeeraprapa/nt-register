@@ -89,6 +89,10 @@ class MailGroupController extends AdminController
                 \Log::error($list,$e);
             }
         }
+
+        $group->state = "Send";
+        $group->save();
+
         $success = new MessageBag([
             'title'   => 'Success',
             'message' => 'Send mails is processing.',
