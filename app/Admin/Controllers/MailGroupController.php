@@ -86,7 +86,8 @@ class MailGroupController extends AdminController
                 $list->state = "Send";
                 $list->save();
             }catch (\Exception $e){
-                \Log::error($list,$e);
+                \Log::error($list);
+                \Log::error($e);
             }
         }
 

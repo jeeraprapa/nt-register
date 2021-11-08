@@ -125,7 +125,8 @@ class MailListController extends AdminController
             ]);
             return back()->with(compact('success'));
         }catch (\Exception $e){
-            \Log::error($list,$e);
+            \Log::error($list);
+            \Log::error($e);
             $error = new MessageBag([
                 'title'   => 'Error',
                 'message' => $e->getMessage(),
