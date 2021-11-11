@@ -23,5 +23,11 @@ Route::group([
 
 		Route::post('/store', 'RegisterController@store')
 		     ->name('store');
+
+		Route::get('/question/{slug}', 'QuestionController@index')
+		     ->name('question');
+
+		Route::post('/question/{slug}/store', 'QuestionController@store')
+		     ->name('question.store');
 	}
 );

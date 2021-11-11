@@ -1,3 +1,9 @@
 @if(session('Thankyou'))
-    @include('_thankyou')
+    @include('modals._thankyou')
+@endif
+@if(session('Message'))
+    @include('modals._message')
+@endif
+@if(session('MessageFailed'))
+    @include('modals._message-failed')
 @endif
