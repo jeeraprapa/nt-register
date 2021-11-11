@@ -146,7 +146,7 @@
                                 </div>
                             </div>
                             <div class="form-group font-weight-bold">
-                                ลงทะเบียนรับเสื้อที่ระลึก กรุณาระบุไซส์ *
+                                ลงทะเบียนรับเสื้อที่ระลึก กรุณาระบุขนาด *
                             </div>
                             <div class="row form-row">
                                 <div class="col-md-6">
