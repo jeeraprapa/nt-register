@@ -33,9 +33,10 @@
                 <div class="form-group mt-4 flex-center">
                     <button type="submit"
                             class="btn btn-warning text-question col-md-3">
-                        ส่งคำตอบ
+                        บันทึก
                     </button>
                 </div>
             </form>
         </div>
+    </div>
 @stop
