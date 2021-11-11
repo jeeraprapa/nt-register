@@ -104,6 +104,7 @@
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
+
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
@@ -116,7 +117,7 @@
                             </div>
                         </div>
                         <div class="form-group font-weight-bold">
-                            ลงทะเบียนรับเสื้อที่ระลึก กรุณาระบุไซส์ *
+                            ลงทะเบียนรับเสื้อที่ระลึก กรุณาระบุขนาด *
                         </div>
                         <div class="row form-row">
                             <div class="col-md-6">
