@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Actions\SendReminder;
 use App\Admin\Extensions\Tools\MailReminderRegisterAllButton;
 use App\Admin\Notifications\ReminderMail;
 use App\Domain\Register;
@@ -9,6 +10,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\MessageBag;
 
 class RegisterController extends AdminController
 {
@@ -47,6 +49,12 @@ class RegisterController extends AdminController
 
         $grid->tools(function ($tools) {
             $tools->append(new MailReminderRegisterAllButton());
+        });
+
+        $grid->actions(function ($actions) {
+            $actions->disableDelete();
+            $actions->add(new SendReminder($actions->getKey()));
+//            $actions->add(new SendReminder($actions->getKey()));
         });
 
         return $grid;
@@ -117,5 +125,28 @@ class RegisterController extends AdminController
         }
 
         return redirect('admin/registers');
+    }
+
+    public function sendReminder(Register $register)
+    {
+        try {
+            $register->notify(new ReminderMail());
+            $register->reminder = "send";
+            $register->save();
+
+            $success = new MessageBag([
+                'title'   => 'Success',
+                'message' => 'Send mail successfully.',
+            ]);
+            return back()->with(compact('success'));
+        }catch (\Exception $e){
+            \Log::error($register);
+            \Log::error($e);
+            $error = new MessageBag([
+                'title'   => 'Error',
+                'message' => $e->getMessage(),
+            ]);
+            return back()->with(compact('error'));
+        }
     }
 }
