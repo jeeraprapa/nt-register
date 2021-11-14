@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Admin\Notifications;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+
+class QuestionnaireMail extends Notification implements ShouldQueue
+{
+    use Queueable;
+
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)->subject('บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) ขอความร่วมมือในการทำแบบสำรวจความพึงพอใจผู้เข้าร่วมกิจกรรมสัมมนาออนไลน์')
+                                ->view('admin.emails.questionnaire',
+                                    ['list' => $notifiable->list]);
+    }
+
+    public function via ($notifiable) {
+        return ['mail'];
+    }
+}

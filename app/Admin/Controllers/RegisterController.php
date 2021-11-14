@@ -2,8 +2,11 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Actions\SendQuestionnaire;
 use App\Admin\Extensions\Actions\SendReminder;
+use App\Admin\Extensions\Tools\MailQuestionnaireAllButton;
 use App\Admin\Extensions\Tools\MailReminderRegisterAllButton;
+use App\Admin\Notifications\QuestionnaireMail;
 use App\Admin\Notifications\ReminderMail;
 use App\Domain\Register;
 use Encore\Admin\Controllers\AdminController;
@@ -43,18 +46,20 @@ class RegisterController extends AdminController
         $grid->column('address', __('Address'));
         $grid->column('size', __('Size'));
         $grid->column('reminder', __('Reminder'));
+        $grid->column('questionnaire', __('questionnaire'));
 //        $grid->column('deleted_at', __('Deleted at'));
         $grid->column('created_at', __('Created at'));
 //        $grid->column('updated_at', __('Updated at'));
 
         $grid->tools(function ($tools) {
             $tools->append(new MailReminderRegisterAllButton());
+            $tools->append(new MailQuestionnaireAllButton());
         });
 
         $grid->actions(function ($actions) {
             $actions->disableDelete();
             $actions->add(new SendReminder($actions->getKey()));
-//            $actions->add(new SendReminder($actions->getKey()));
+            $actions->add(new SendQuestionnaire($actions->getKey()));
         });
 
         return $grid;
@@ -132,6 +137,52 @@ class RegisterController extends AdminController
         try {
             $register->notify(new ReminderMail());
             $register->reminder = "send";
+            $register->save();
+
+            $success = new MessageBag([
+                'title'   => 'Success',
+                'message' => 'Send mail successfully.',
+            ]);
+            return back()->with(compact('success'));
+        }catch (\Exception $e){
+            \Log::error($register);
+            \Log::error($e);
+            $error = new MessageBag([
+                'title'   => 'Error',
+                'message' => $e->getMessage(),
+            ]);
+            return back()->with(compact('error'));
+        }
+    }
+
+    public function sendQuestionnaireMails ()
+    {
+        $registers = Register::all();
+
+        foreach ($registers as $register){
+            try {
+                $register->notify(new QuestionnaireMail());
+                $register->questionnaire = "Send";
+                $register->save();
+            }catch (\Exception $e){
+                \Log::error($register);
+                \Log::error($e);
+            }
+        }
+
+
+        $success = new MessageBag([
+            'title'   => 'Success',
+            'message' => 'Send mails is processing.',
+        ]);
+        return redirect('admin/registers')->with(compact('success'));
+    }
+
+    public function sendQuestionnaire (Register $register)
+    {
+        try {
+            $register->notify(new QuestionnaireMail());
+            $register->questionnaire = "Send";
             $register->save();
 
             $success = new MessageBag([
