@@ -22,6 +22,18 @@
     Passcode : 209915
 </p>
 
+<table width="650" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tbody>
+    <tr>
+        <td>
+            <a href="https://zoom.us/j/92887006155?pwd=aWIzM1VJZi9MMHB2SFU1ZUtEeWdhUT09">
+                <img src="{{asset('images/reward.jpg')}}" width="650" />
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
 <p>
     We look forward to seeing you!
 </p>

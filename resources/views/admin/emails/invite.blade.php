@@ -23,6 +23,13 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="{{route('register')}}">
+                    <img src="{{asset('images/reward.jpg')}}" width="650" />
+                </a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </body>

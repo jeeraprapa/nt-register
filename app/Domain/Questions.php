@@ -10,7 +10,17 @@ class Questions extends BaseModel
 
 	protected $fillable = [
 		'slug',
-		'qr_code',
 		'state'
 	];
+
+	protected $appends = ['qr'];
+
+    public function getQrAttribute ()
+    {
+        $url = route('question',[
+            'slug' => $this->getAttribute('slug')
+        ]);
+
+        return $url;
+	}
 }

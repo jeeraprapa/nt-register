@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "cartalyst/sentinel": "^4.0",
+        "doctrine/dbal": "^2.9",
         "encore/laravel-admin": "^1.8",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -17,8 +18,7 @@
         "laravel-admin-ext/log-viewer": "^1.0",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "maatwebsite/excel": "^3.1",
-        "doctrine/dbal": "^2.9"
+        "maatwebsite/excel": "^3.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -15,6 +15,8 @@ Route::group([
     $router->resource('mail-groups', MailGroupController::class);
     $router->resource('mail-lists', MailListController::class);
     $router->resource('registers', RegisterController::class);
+    $router->resource('questions', QuestionController::class);
+    $router->resource('scans', ScanController::class);
 
     $router->post('/mail-lists/import', 'MailListController@import');
     $router->get('/mail-group/{group}/send-mail', 'MailGroupController@sendMail')->name('mail.group.send');
