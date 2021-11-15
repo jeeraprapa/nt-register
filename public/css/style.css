@@ -10,6 +10,11 @@ html, body {
     height: 100%;
     object-fit: cover;
 }
+.banner img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
 
 .flex-center {
     align-items: center;
@@ -112,7 +117,13 @@ input.form-control, textarea.form-control {
 }
 
 @media only screen and (max-width: 768px) {
-    .col-right {
+    .col-left img {
         display: none;
+    }
+
+    .banner img {
+        width: 40%;
+        height: 40%;
+        object-fit: cover;
     }
 }

@@ -3,8 +3,8 @@
 @section('content')
 
     <div class="row flex-center p-4">
-        <div class="col-md-3 col-left">
-            <img src="{{ asset('images/logo3.png') }}" width="295"/>
+        <div class="col-md-3 banner">
+            <img src="{{ asset('images/logo3.png') }}" />
         </div>
         <div class="col-md-6"></div>
     </div>
