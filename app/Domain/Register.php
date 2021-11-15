@@ -25,6 +25,15 @@ class Register extends BaseModel
         'reminder'
 	];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d h:i:s'
+    ];
+
+    public function scores ()
+    {
+        return $this->hasMany(Scan::class);
+    }
+
 	public function getFormattedIdAttribute()
 	{
 		return str_pad($this->id, 3, '0', STR_PAD_LEFT);

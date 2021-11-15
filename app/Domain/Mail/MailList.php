@@ -13,6 +13,10 @@ class MailList extends Model
 
     protected $table = 'mail_list';
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d h:i:s'
+    ];
+
     protected $fillable = [
         'mail_group_id',
         'first_name',

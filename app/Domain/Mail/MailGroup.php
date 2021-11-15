@@ -11,6 +11,10 @@ class MailGroup extends Model
 
     protected $table = 'mail_group';
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d h:i:s'
+    ];
+
     protected $fillable = [
         'name','state'
     ];

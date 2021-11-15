@@ -9,6 +9,7 @@ use App\Admin\Extensions\Tools\MailReminderRegisterAllButton;
 use App\Admin\Notifications\QuestionnaireMail;
 use App\Admin\Notifications\ReminderMail;
 use App\Domain\Register;
+use Carbon\Carbon;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -34,9 +35,19 @@ class RegisterController extends AdminController
         $grid = new Grid(new Register());
 
         $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('first_name', __('First name'));
-        $grid->column('last_name', __('Last name'));
+
+//        $grid->column('title', __('Title'));
+//        $grid->column('first_name', __('First name'));
+//        $grid->column('last_name', __('Last name'));
+
+        $grid->column('full_name')->display(function () {
+            return $this->title. ' ' .$this->first_name . ' ' . $this->last_name;
+        });
+
+        $grid->column('score')->display(function () {
+            return $this->scores()->count();
+        });
+
         $grid->column('department', __('Department'));
         $grid->column('age', __('Age'));
         $grid->column('position', __('Position'));
@@ -49,6 +60,7 @@ class RegisterController extends AdminController
         $grid->column('questionnaire', __('questionnaire'));
 //        $grid->column('deleted_at', __('Deleted at'));
         $grid->column('created_at', __('Created at'));
+
 //        $grid->column('updated_at', __('Updated at'));
 
         $grid->tools(function ($tools) {

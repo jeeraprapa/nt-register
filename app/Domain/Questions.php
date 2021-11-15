@@ -13,6 +13,10 @@ class Questions extends BaseModel
 		'state'
 	];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d h:i:s'
+    ];
+
 	protected $appends = ['qr'];
 
     public function getQrAttribute ()

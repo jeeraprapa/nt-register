@@ -13,6 +13,11 @@ class Scan extends BaseModel
 		'question_id'
 	];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d h:i:s',
+        'updated_at' => 'datetime:Y-m-d h:i:s',
+    ];
+
 	public function register()
 	{
 		return $this->belongsTo(Register::class, 'register_id');

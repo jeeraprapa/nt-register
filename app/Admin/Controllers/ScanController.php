@@ -27,11 +27,17 @@ class ScanController extends AdminController
         $grid = new Grid(new Scan());
 
         $grid->column('id', __('Id'));
-        $grid->column('register_id', __('Register id'));
         $grid->column('question_id', __('Question id'));
-        $grid->column('deleted_at', __('Deleted at'));
+//        $grid->column('register_id', __('Register id'));
+        $grid->column('register_id')->display(function () {
+            return $this->register->formatted_id;
+        });
+        $grid->column('register')->display(function () {
+            return $this->register->title. ' ' .$this->register->first_name . ' ' . $this->register->last_name;
+        });
+//        $grid->column('deleted_at', __('Deleted at'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+//        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
