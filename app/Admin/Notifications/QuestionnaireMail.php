@@ -13,7 +13,7 @@ class QuestionnaireMail extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) ขอความร่วมมือในการทำแบบสำรวจความพึงพอใจผู้เข้าร่วมกิจกรรมสัมมนาออนไลน์')
+        return (new MailMessage)->subject('ขอเชิญผู้เข้าร่วมสัมมนาออนไลน์ ร่วมกรอกแบบประเมินความพึงพอใจ ต่อการจัดงาน The Exclusive Webinar ของบริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)')
                                 ->view('admin.emails.questionnaire',
                                     ['list' => $notifiable->list]);
     }
