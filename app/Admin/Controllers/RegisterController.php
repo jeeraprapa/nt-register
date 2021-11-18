@@ -172,9 +172,9 @@ class RegisterController extends AdminController
         $from = request()->get('from');
         $to = request()->get('to');
         if($to > 0 and $from > 0){
-            $registers = Register::whereBetween('id',[$from,$to])->get();
+            $registers = Register::whereNull('questionnaire')->whereBetween('id',[$from,$to])->get();
         }else{
-            $registers = Register::all();
+            $registers = Register::whereNull('questionnaire')->all();
         }
 
         foreach ($registers as $register){
@@ -189,11 +189,11 @@ class RegisterController extends AdminController
         }
 
 
-        $success = new MessageBag([
-            'title'   => 'Success',
-            'message' => 'Send mails is processing.',
-        ]);
-        return redirect('admin/registers')->with(compact('success'));
+//        $success = new MessageBag([
+//            'title'   => 'Success',
+//            'message' => 'Send mails is processing.',
+//        ]);
+//        return redirect('admin/registers')->with(compact('success'));
     }
 
     public function sendQuestionnaire (Register $register)
