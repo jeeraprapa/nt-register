@@ -169,9 +169,10 @@ class RegisterController extends AdminController
 
     public function sendQuestionnaireMails ()
     {
+        $from = request()->get('from');
         $to = request()->get('to');
-        if($to > 0){
-            $registers = Register::where('id','<=',$to)->get();
+        if($to > 0 and $from > 0){
+            $registers = Register::whereBetween('id',[$from,$to])->get();
         }else{
             $registers = Register::all();
         }
