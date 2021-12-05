@@ -13,8 +13,11 @@ class InviteMail extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์')
-                                ->view('admin.emails.invite',
+//        return (new MailMessage)->subject('บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์')
+//                                ->view('admin.emails.invite',
+//                                    ['list' => $notifiable->list]);
+        return (new MailMessage)->subject('กรมอนามัย กระทรวงสาธารณสุข ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์')
+                                ->view('admin.emails.doh',
                                     ['list' => $notifiable->list]);
     }
 

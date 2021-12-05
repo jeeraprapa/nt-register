@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="th-th">
+<body>
+<p>
+    กรมอนามัย กระทรวงสาธารณสุข
+</p>
+<p>
+    ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์ (The Exclusive Webinar) ผ่านระบบ zoom  วันพุธที่ 17 พฤศจิกายน 2564 เวลา 13:00 - 16:30 น. ในหัวข้อ “Recharge & Comeback Stronger”
+</p>
+<p>
+    ขอเรียนเชิญเข้าร่วมงานการประชุมเชิงปฏิบัติการนำเสนอสรุปผลการดำเนินงานของโครงการการพัฒนาและส่งเสริมการเกิดอย่างมีคุณภาพและถ้วนหน้า (Save Birth for All) ในวันพุธที่ 8 ธันวาคม 2564 เวลา 12:30 - 16:00 น. ณ โรงแรมมิราเคิล แกรนด์ คอนเวนชั่น กรุงเทพฯ  หรือเข้าร่วมการประชุมผ่านระบบ Zoom Meeting โดยสามารถเข้าร่วมประชุมผ่าน Link ด้านล่างนี้
+</p>
+<p>
+    Topic: ประชุมเชิงปฏิบัติการการนำเสนอสรุปผลการดำเนินงานของโครงการการพัฒนาและส่งเสริมการเกิดอย่างมีคุณภาพและถ้วนหน้า (Save Birth for All)
+</p>
+<p>
+    Time: Dec 8, 2021 01:00 PM Bangkok
+</p>
+<p>
+    Join Zoom Meeting<br>
+    <a href="https://us02web.zoom.us/j/81156572110">https://us02web.zoom.us/j/81156572110</a><br>
+    Meeting ID: 811 5657 2110
+</p>
+<table width="650" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tbody>
+    <tr>
+        <td>
+            <a href="{{route('register')}}">
+                <img src="{{asset('images/ecard-01.jpg')}}" width="650" />
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
