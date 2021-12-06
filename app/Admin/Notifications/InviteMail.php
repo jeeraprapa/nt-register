@@ -22,7 +22,7 @@ class InviteMail extends Notification implements ShouldQueue
         $file3 = public_path("uploaded/attach/doh/ecard_en.jpg");
         $file4 = public_path("uploaded/attach/doh/ecard_th.jpg");
 
-        return (new MailMessage)->subject('กรมอนามัย กระทรวงสาธารณสุข ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์')
+        return (new MailMessage)->subject('DoH, MoPH l Invitation to the Virtual Event Highlighting PPP on Safe Birth for All')
                                 ->view('admin.emails.doh',
                                     ['list' => $notifiable->list])->attach($file1)->attach($file2)->attach($file3)->attach($file4);
     }

@@ -2,13 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="th-th">
 <body>
 <p>
-    กรมอนามัย กระทรวงสาธารณสุข
-</p>
+    Greeting. The Department of Health, Ministry of Public Health, Thailand, would like to invite you to the Virtual Event Highlighting Public Private Partnership (PPP) on Safe Birth for All. This virtual event will be held on Wednesday, 8 December 2021, 01.00 – 04.00 PM at Miracle Grand Convention Hotel, Bangkok. You can also join this event online via Zoom Meeting platform by clicking on the link below.
 <p>
-    ขอเรียนเชิญนายแพทย์สาธารณสุขจังหวัดเข้าร่วมงานการประชุมเชิงปฏิบัติการนำเสนอสรุปผลการดำเนินงานของโครงการการพัฒนาและส่งเสริมการเกิดอย่างมีคุณภาพและถ้วนหน้า (Save Birth for AII) ในวันพุธที่ 8 ธันวาคม 2564 เวลา 12:30 - 16:00 น. ณ ห้องประชุม เมจิก 3 โรงแรมมิราเคิล แกรนด์ คอนเวนชั่น กรุงเทพฯ หรือเข้าร่วมการประชุมผ่านระบบ Zoom Meeting โดยสามารถเข้าร่วมประชุมผ่าน Link ด้านล่างนี้
-</p>
-<p>
-    Topic: ประชุมเชิงปฏิบัติการการนำเสนอสรุปผลการดำเนินงานของโครงการการพัฒนาและส่งเสริมการเกิดอย่างมีคุณภาพและถ้วนหน้า (Save Birth for AII)
+    Topic: Virtual Event Highlighting PPP on Safe Birth for All
 </p>
 <p>
     Time: Dec 8, 2021 01:00 PM Bangkok
@@ -23,7 +19,36 @@
     <tr>
         <td>
             <a href="https://us02web.zoom.us/j/81156572110">
-                <img src="{{asset('images/doh/ecard.jpg')}}" width="650" />
+                <img src="{{asset('images/doh/ecard_en.jpg')}}" width="650" />
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<p>
+    กรมอนามัย กระทรวงสาธารณสุข
+</p>
+<p>
+    ขอเรียนเชิญเข้าร่วมงานการประชุมเชิงปฏิบัติการนำเสนอสรุปผลการดำเนินงานของโครงการการพัฒนาและส่งเสริมการเกิดอย่างมีคุณภาพและถ้วนหน้า (Save Birth for All) ในวันพุธที่ 8 ธันวาคม 2564 เวลา 12:30 - 16:00 น. ณ โรงแรมมิราเคิล แกรนด์ คอนเวนชั่น กรุงเทพฯ  หรือเข้าร่วมการประชุมผ่านระบบ Zoom Meeting โดยสามารถเข้าร่วมประชุมผ่าน Link ด้านล่างนี้
+</p>
+<p>
+    Topic: ประชุมเชิงปฏิบัติการการนำเสนอสรุปผลการดำเนินงานของโครงการการพัฒนาและส่งเสริมการเกิดอย่างมีคุณภาพและถ้วนหน้า (Save Birth for All)
+</p>
+<p>
+    Time: Dec 8, 2021 01:00 PM Bangkok
+</p>
+<p>
+    Join Zoom Meeting<br>
+    <a href="https://us02web.zoom.us/j/81156572110">https://us02web.zoom.us/j/81156572110</a><br>
+    Meeting ID: 811 5657 2110
+</p>
+<table width="650" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tbody>
+    <tr>
+        <td>
+            <a href="https://us02web.zoom.us/j/81156572110">
+                <img src="{{asset('images/doh/ecard_th.jpg')}}" width="650" />
             </a>
         </td>
     </tr>

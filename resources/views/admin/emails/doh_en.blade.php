@@ -19,7 +19,7 @@
     <tr>
         <td>
             <a href="https://us02web.zoom.us/j/81156572110">
-                <img src="{{asset('images/doh/ecard.jpg')}}" width="650" />
+                <img src="{{asset('images/doh/ecard_en.jpg')}}" width="650" />
             </a>
         </td>
     </tr>
