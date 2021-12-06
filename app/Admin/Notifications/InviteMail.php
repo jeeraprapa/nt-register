@@ -16,9 +16,15 @@ class InviteMail extends Notification implements ShouldQueue
 //        return (new MailMessage)->subject('บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์')
 //                                ->view('admin.emails.invite',
 //                                    ['list' => $notifiable->list]);
+
+        $file1 = public_path("uploaded/attach/doh/AgendaEn.pdf");
+        $file2 = public_path("uploaded/attach/doh/AgendaTh.pdf");
+        $file3 = public_path("uploaded/attach/doh/ecard_en.pdf");
+        $file4 = public_path("uploaded/attach/doh/ecard_th.pdf");
+
         return (new MailMessage)->subject('กรมอนามัย กระทรวงสาธารณสุข ขอเรียนเชิญเข้าร่วมงานสัมมนาออนไลน์')
                                 ->view('admin.emails.doh',
-                                    ['list' => $notifiable->list]);
+                                    ['list' => $notifiable->list])->attach($file1)->attach($file2)->attach($file3)->attach($file4);
     }
 
 
